@@ -10,7 +10,7 @@ using namespace std;// for string
 /**
  *A string to float conversion exception.
  */
-class str_to_float_error:public exception
+class str_to_float_error: public exception
 {
   string str;/**< The string describing this string to float conversion exception.*/
   public:
@@ -26,7 +26,8 @@ class str_to_float_error:public exception
     /**
     *Creates a string describing this string to float conversion exception.
     *This string is "CN: unable to convert the string \"SV\" to a float".
-    *CN: The name of this class.29*SV: The str attribute value.
+    *CN: The name of this class.
+    *SV: The str attribute value.
     *\returns The string describing this string to float conversion exception.
     */
     const char *what()const throw();
