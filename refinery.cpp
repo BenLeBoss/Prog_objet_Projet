@@ -209,7 +209,3 @@ void refinery_t::set_street(string street){
 void refinery_t::set_web(string web){
   this->web=web;
 }
-
-int main(){
-  return 0;
-}

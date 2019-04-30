@@ -1,9 +1,6 @@
-
 #ifndef METAL_H
 #define METAL_H
 #include<string>
-#include<sstream>
-#include<iostream>
 using namespace std;
 
 class metal_t{

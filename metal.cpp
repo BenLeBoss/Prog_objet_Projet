@@ -1,9 +1,8 @@
-#include "metal.h"
-
 #include <iostream>
 #include <string>
-#include <sstream>
 using namespace std;
+
+#include "metal.h"
 
 metal_t::metal_t(){
   this->buy_price=0;
@@ -31,7 +30,7 @@ void metal_t::handle_m()const{
 }
 
 ostream &operator<<(ostream &os, const metal_t &metal){
-  os << "(buy_price:" << metal.get_buy_price() << "$, demand_quantity:" << metal.get_demand_quantity() << "t, name: " << metal.get_name() << ", symbol: " << metal.get_symbol() <<")";
+  os << "(buy_price:" << metal.get_buy_price() << ", demand_quantity:" << metal.get_demand_quantity() << ", name: " << metal.get_name() << ", symbol: " << metal.get_symbol() <<")";
   return os;
 }
 
@@ -113,8 +112,4 @@ void metal_t::set_buy_price(float buy_price){
 
 void metal_t::set_demand_quantity(float demand_quantity){
   this->demand_quantity=demand_quantity;
-}
-
-int main(){
-  return 0;
 }

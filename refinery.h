@@ -2,19 +2,14 @@
 #define REFINERY_H
 #include <string>
 #include <vector>
-#include "metal.h"
 using namespace std;
+
+#include "metal.h"
 /**
 * A day (of the week, from monday to sunday).
 */
-enum day_t
-{
-        monday,
-        tuesday,
-        wednesday,
-        friday,
-        saturday,
-        sunday
+enum day_t{
+        monday,tuesday,wednesday,thursday,friday,saturday,sunday
 };
 /**
   *A refinery
@@ -29,6 +24,7 @@ class refinery_t
   int postal_code;/**< The postal code (example: "64000").*/
   string street;/**< The street (example: "1 rue Richelieu").*/
   string web;/**< The web address (example: "http://pau-refinery.pau.fr/").*/
+
   public:
           refinery_t();
           /**
@@ -37,7 +33,7 @@ class refinery_t
           *\param index The index.
           *\return The element of days at the specified index for this refinery.
           */
-          day_t days_at(intindex)const;
+          day_t days_at(int index)const;
           /**
           *Adds an element at the end of days for this refinery.
           *Calls the push_back method on days.
@@ -82,7 +78,8 @@ class refinery_t
           string get_web()const;
           /**
           *Handles the addr command for this refinery.
-          *Prints "NV, SV, PCV, CV\n".90*NV: The name attribute value.
+          *Prints "NV, SV, PCV, CV\n".90
+          *NV: The name attribute value.
           *SV: The street attribute value.
           *PCV: The postal_code attribute value.
           *CV: The city attribute value.
@@ -109,61 +106,61 @@ class refinery_t
           *Iterates on metals to call the handle_mbp method on its elements.
           *\param price The mbp command parameter.
           */
-          void handle_mbp(floatprice)const;
+          void handle_mbp(float price)const;
           /**
           *Handles the mbpge command for this refinery.
           *Iterates on metals to call the handle_mbpge method on its elements.
           *\param price The mbpge command parameter.
           */
-          void handle_mbpge(floatprice)const;
+          void handle_mbpge(float price)const;
           /**
           *Handles the mbpgt command for this refinery.
           *Iterates on metals to call the handle_mbpgt method on its elements.
           *\param price The mbpgt command parameter.
           */
-          void handle_mbpgt(floatprice)const;
+          void handle_mbpgt(float price)const;
           /**
           *Handles the mbple command for this refinery.
           *Iterates on metals to call the handle_mbple method on its elements.
           *\param price The mbple command parameter.
           */
-          void handle_mbple(floatprice)const;
+          void handle_mbple(float price)const;
           /**
           *Handles the mbplt command for this refinery.
           *Iterates on metals to call the handle_mbplt method on its elements.
           *\param price The mbplt command parameter.
           */
-          void handle_mbplt(floatprice)const;
+          void handle_mbplt(float price)const;
           /**
           *Handles the mdq command for this refinery.
           *Iterates on metals to call the handle_mdq method on its elements.
           *\param qty The mdq command parameter.
           */
-          void handle_mdq(floatqty)const;
+          void handle_mdq(float qty)const;
           /**
           *Handles the mdqge command for this refinery.
           *Iterates on metals to call the handle_mdqge method on its elements.
           *\param qty The mdqge command parameter.
           */
-          void handle_mdqge(floatqty)const;
+          void handle_mdqge(float qty)const;
           /**
           *Handles the mdqgt command for this refinery.
           *Iterates on metals to call the handle_mdqgt method on its elements.
           *\param qty The mdqgt command parameter.
           */
-          void handle_mdqgt(floatqty)const;
+          void handle_mdqgt(float qty)const;
           /**
           *Handles the mdqle command for this refinery.
           *Iterates on metals to call the handle_mdqle method on its elements.
           *\param qty The mdqle command parameter.
           */
-          void handle_mdqle(floatqty)const;
+          void handle_mdqle(float qty)const;
           /**
           *Handles the mdqlt command for this refinery.
           *Iterates on metals to call the handle_mdqlt method on its elements.
           *\param qty The mdqlt command parameter.
           */
-          void handle_mdqlt(floatqty)const;
+          void handle_mdqlt(float qty)const;
           /**
           *Handles the mn command for this refinery.
           *Iterates on metals to call the handle_mn method on its elements.
@@ -193,7 +190,7 @@ class refinery_t
           *\param index The index.
           *\return The element of metals at the specified index for this refinery.
           */
-          metal_t metals_at(intindex)const;
+          metal_t metals_at(int index)const;
           /**
           *Adds an element at the end of metals for this refinery.
           *Calls the push_back method on metals.
@@ -225,7 +222,7 @@ class refinery_t
           *Sets the postal code for this refinery.
           *\param postal_code The postal code for this refinery.
           */
-          void set_postal_code(intpostal_code);
+          void set_postal_code(int postal_code);
           /**
           *Sets the street for this refinery.
           *\param street The street for this refinery.
@@ -253,5 +250,5 @@ PCN: PCV, SN: SV, WN: WV)".
 *\param refinery The refinery.
 *\return The output stream.
 */
-ostream &operator<<(ostream &os,constrefinery_t &refinery);
+ostream &operator<<(ostream &os,const refinery_t &refinery);
 #endif
