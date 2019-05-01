@@ -15,7 +15,7 @@ refinery_t::refinery_t(){
 }
 
 day_t refinery_t::days_at(int index)const{
-  return this->days[index];
+  return this->days.at(index);
 }
 
 void refinery_t::days_push_back(day_t day){
@@ -149,7 +149,7 @@ ostream &operator<<(ostream &os,const refinery_t &refinery){
 
   string tab[7]={"monday","tuesday","wednesday","thursday","friday","saturday","sunday"};
 
-  os << "(city:" << refinery.get_city() << ", days: (";
+  os << "(city: " << refinery.get_city() << ", days: (";
 
   for(int i=0;i<=(refinery.days_size()-1);i++){
     if (i==(refinery.days_size()-1)){
