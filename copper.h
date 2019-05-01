@@ -4,8 +4,6 @@
 
 
 class copper_t: public metal_t{
-  char* name;
-  char* symbol;
 
 public:
   copper_t();

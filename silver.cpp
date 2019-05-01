@@ -3,6 +3,6 @@
 #include <iostream>
 
 silver_t::silver_t(){
-  this->name=(char*)"Silver";
-  this->symbol=(char*)"Ag";
+  this->name="Silver";
+  this->symbol="Ag";
 }
