@@ -19,6 +19,92 @@ using namespace pugi;
 int main(int argc, char *argv[]){
 
 refinery_t refinery;
+gold_t gold;
+silver_t silver;
+
+
+if(argc!=2){
+  cerr << "./mrp.out: invalid number of arguments" << endl;
+}
+
+xml_document doc;
+
+xml_parse_result result = doc.load_file(argv[1]);
+
+if(doc==NULL){
+  cerr << "./mrp.out: unable to parse the document" << endl;
+}
+
+if (!result){
+  cerr << "Parse error :" << result.description() << endl;
+}
+
+xml_node cur = doc.child("refinery");
+refinery.set_name(cur.attribute("name").value());
+
+for(xml_node ref = cur.first_child(); ref; ref = ref.next_sibling() ){              //1ère boucle
+ for(xml_node ref2 = ref.first_child(); ref2; ref2 = ref2.next_sibling() ){         //2ème boucle
+   if (strcmp(ref2.name(),"mail")==0){
+     refinery.set_mail(ref2.child_value());
+   }
+   else if (strcmp(ref2.name(),"web")==0){
+     refinery.set_web(ref2.child_value());
+   }
+   else if (strcmp(ref2.name(),"day")==0){
+     if(strcmp(ref2.child_value(),"Monday")==0){
+       refinery.days_push_back(monday);
+     }
+     if(strcmp(ref2.child_value(),"Tuesday")==0){
+       refinery.days_push_back(tuesday);
+     }
+     if(strcmp(ref2.child_value(),"Wednesday")==0){
+       refinery.days_push_back(wednesday);
+     }
+     if(strcmp(ref2.child_value(),"Thursday")==0){
+       refinery.days_push_back(thursday);
+     }
+     if(strcmp(ref2.child_value(),"Friday")==0){
+       refinery.days_push_back(friday);
+     }
+     if(strcmp(ref2.child_value(),"Saturday")==0){
+       refinery.days_push_back(saturday);
+     }
+     if(strcmp(ref2.child_value(),"Sunday")==0){
+       refinery.days_push_back(sunday);
+     }
+   }
+   for(xml_node ref3 = ref2.first_child(); ref3; ref3 = ref3.next_sibling() ){      //3ème boucle
+     if (strcmp(ref3.name(),"street")==0){
+       refinery.set_street(ref3.child_value());
+     }
+     else if (strcmp(ref3.name(),"postal-code")==0){
+       refinery.set_postal_code(atoi(ref3.child_value()));
+     }
+     else if (strcmp(ref3.name(),"city")==0){
+       refinery.set_city(ref3.child_value());
+     }
+     else if (strcmp(ref3.name(),"buy-price")==0){
+       if (strcmp(ref2.attribute("name").value(),"Gold")==0){
+         gold.set_buy_price(atof(ref3.child_value()));
+       }
+       if (strcmp(ref2.attribute("name").value(),"Silver")==0){
+         silver.set_buy_price(atof(ref3.child_value()));
+       }
+     }
+     else if (strcmp(ref3.name(),"demand-quantity")==0){
+       if (strcmp(ref2.attribute("name").value(),"Gold")==0){
+         gold.set_demand_quantity(atof(ref3.child_value()));
+       }
+       if (strcmp(ref2.attribute("name").value(),"Silver")==0){
+         silver.set_demand_quantity(atof(ref3.child_value()));
+       }
+     }
+   }
+ }
+}
+
+refinery.metals_push_back(gold);
+refinery.metals_push_back(silver);
 
 
 int i,j,n;
@@ -152,4 +238,7 @@ do{
     cout << "invalid command" << endl;
   }
 }while(n!=1);
+
+
+
 }
