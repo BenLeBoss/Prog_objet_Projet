@@ -30,7 +30,7 @@ void metal_t::handle_m()const{
 }
 
 ostream &operator<<(ostream &os, const metal_t &metal){
-  os << "(buy_price:" << metal.get_buy_price() << ", demand_quantity:" << metal.get_demand_quantity() << ", name: " << metal.get_name() << ", symbol: " << metal.get_symbol() <<")";
+  os << "(buy_price:" << metal.get_buy_price() << "$ , demand_quantity:" << metal.get_demand_quantity() << "t , name: " << metal.get_name() << ", symbol: " << metal.get_symbol() <<")";
   return os;
 }
 
