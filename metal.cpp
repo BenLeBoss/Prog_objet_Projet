@@ -36,73 +36,73 @@ ostream &operator<<(ostream &os, const metal_t &metal){
 
 void metal_t::handle_mbp(float price)const{
   if(this->get_buy_price()==price){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mbpge(float price)const{
   if(this->get_buy_price()>=price){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mbpgt(float price)const{
   if(this->get_buy_price()>price){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mbple(float price)const{
   if(this->get_buy_price()<=price){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mbplt(float price)const{
   if(this->get_buy_price()<price){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mdq(float qty) const{
   if(this->get_demand_quantity()==qty){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mdqge(float qty) const{
   if(this->get_demand_quantity()>=qty){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mdqgt(float qty) const{
   if(this->get_demand_quantity()>qty){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mdqle(float qty) const{
   if(this->get_demand_quantity()<=qty){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mdqlt(float qty) const{
   if(this->get_demand_quantity()<qty){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_mn(string name) const{
   if(this->get_name()==name){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
 void metal_t::handle_ms(string symbol) const{
   if(this->get_symbol()==symbol){
-    metal_t::handle_m();
+    this->handle_m();
   }
 }
 
